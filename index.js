@@ -1,7 +1,8 @@
+#!  /usr/bin/env node 
 import inquirer from "inquirer";
 const answer = await inquirer.prompt([
-    { message: "enter first number", type: "number", name: "first number" },
-    { message: "enter second number", type: "number", name: "second number" },
+    { message: "enter first number", type: "number", name: "firstNumber" },
+    { message: "enter second number", type: "number", name: "secondNumber" },
     {
         message: "select an operator to perform operation",
         type: "list",
@@ -9,4 +10,20 @@ const answer = await inquirer.prompt([
         choices: ["addition", "subtraction", "multiplication", "division"],
     },
 ]);
-console.log(answer);
+//console.log(answer);
+//conditional statement
+if (answer.operator === "addition") {
+    console.log(answer.firstNumber + answer.secondNumber);
+}
+else if (answer.operator === "subtraction") {
+    console.log(answer.firstNumber - answer.secondNumber);
+}
+else if (answer.operator === "multiplication") {
+    console.log(answer.firstNumber * answer.secondNumber);
+}
+else if (answer.operator === "division") {
+    console.log(answer.firstNumber / answer.secondNumber);
+}
+else {
+    console.log("Please select valid operator");
+}
